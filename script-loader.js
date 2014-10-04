@@ -4,7 +4,6 @@
 	A utility to load javascript and css files dynamically. Call success or failure functions at the end.
 
 	Author: Asim Ishaq
-	Email: asim709@gmail.com
 	Web: asimishaq.com
 
 	License: GPL v2 or later
@@ -13,10 +12,10 @@
 
 var ScriptLoader = {
 	/**
-	@param 	scripts array of css and js files
-			Format: [{file:"",type:"css"},file:"",type:"js"},..]
-	@param 	success callback function if all scripts are loaded successfully.
-	@param 	failure callback function if any script fails loading or timeouts.
+	@param 	scripts: array of css and js files
+			[{file:"",type:"css"},{file:"",type:"js"},..]
+	@param 	success: callback function if all scripts are loaded successfully.
+	@param 	failure: callback function if any script fails loading or timeouts.
 	*/
 	load: function (scripts, success, failure) {
 
@@ -28,8 +27,6 @@ var ScriptLoader = {
 			LoaderObj.timeout = 10000;
 			LoaderObj.files = [];
 			LoaderObj.head = document.getElementsByTagName("head")[0];
-			//Debug
-			window.aaa = LoaderObj;
 
 		/*Write Files in Head tag*/
 		for (var i=0; i<scripts.length; i++) {
@@ -75,7 +72,7 @@ var ScriptLoader = {
 
 					for (var i=0; i<Loader.files.length; i++) {
 						
-						//IF not loaded and not timeout then try to recheck status
+						//IF not loaded and not timeout then recheck status
 						if (Loader.files[i].elphased <= Loader.timeout) {
 							
 							if (Loader.files[i].loaded == false ) {
